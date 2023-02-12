@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>JS Editor</title>
+</head>
+<body>
+    
+
+
+    <div data-role="page" id="code">
+
+        <div data-role="header" data-theme='b'>
+            <h2>Code</h2>
+        
+            <div data-role="navbar" data-theme='b'>
+                <ul>
+                <li><a href="#code">Code</a></li>
+                <li><a href="#output">Output</a></li>
+                </ul>
+            </div>
+        </div>  
+
+        <div data-role="content" data-theme='b'>
+            <div id="sidebar">
+                <ul>
+                  <li><a href="">File 1.js</a></li>
+                  <li><a href="">File 2.js</a></li>
+                  <li><a href="">File 3.html</a></li>
+                  <li><a href="">File 4.css</a></li>
+                </ul>
+            
+                <div id="sidebar-btn">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            
+            HTML & CSS, JS Code Editor. This page will have the current file opened. 
+            <br><br>
+            It will open the directories from the user's pc (like vscode.dev does)
+            <br><br>
+            and will give the user an opportunity to modify the code and save it back 
+            <br><br> 
+            to the pc.
+            <br><br>
+            It will include a complete code highlighting system and error message popups,
+            <br><br>
+            and a couple more features that I will come up with soon. 
+            <br><br> 
+            Since we will have to use node.js, creating user accounts and saving files online
+            <br><br> 
+            is an option. With the help of a service like Firebase, accounts can be setup quickly. 
+
+            <br><br>
+            <br><br>
+            There is a menu on the left with the user's open files. 
+        </div>
+        <script src="script.js"></script>
+
+          <div data-role="footer" data-theme='b'>
+            <h3>Copyrigtht <span class="year"></span> by Vladyslav Tsepenok</h3>
+        </div>
+    </div>
+
+
+
+
+    <div data-role="page" id="output">
+    
+        <div data-role="header" data-theme='b'>
+            <h2>Output</h2>
+
+            <div data-role="navbar" data-theme='b'>
+                <ul>
+                 <li><a href="#code">Code</a></li>
+                 <li><a href="#output">Output</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div data-role="content" data-theme='b'>
+            Here is the page of code output. It will connect the rest of the user files 
+            to the index.html file and display the user code on this page.
+            <br>
+            <br>
+            It is going to have a square window in the middle to separate user's code from 
+            the rest of the page.
+            <br>
+            <br>
+            Simple page to only show the output.
+            <div></div>
+            <iframe id="output"></iframe>
+        </div>
+
+        <div data-role="footer" data-theme='b'>
+            <h3>Copyrigtht <span class="year"></span> by Vladyslav Tsepenok</h3>
+        </div>
+    </div>
+
+
+</body>
+</html>
