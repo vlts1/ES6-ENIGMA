@@ -1,3 +1,5 @@
+let openfile = '';
+
 function setCurrentYear() {
     let date = new Date();
     let currentYear = date.getFullYear().toString();
@@ -18,6 +20,7 @@ function openFile(fileName) {
             // Function also treats html as text.
             // If .html(data) is used then the code for html breaks
             $("#open_file").text(data);
+
         }
     });
 }
