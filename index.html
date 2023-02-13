@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>JS Editor</title>
 </head>
@@ -29,13 +30,12 @@
 
         <div data-role="content" data-theme='b'>
             <div id="sidebar">
-                <ul>
-                  <li><a href="">File 1.js</a></li>
-                  <li><a href="">File 2.js</a></li>
-                  <li><a href="">File 3.html</a></li>
-                  <li><a href="">File 4.css</a></li>
+                <ul id="file_list">
+                  <li>index.html</li>
+                  <li>style.css</li>
+                  <li>script.js</li>
                 </ul>
-            
+
                 <div id="sidebar-btn">
                   <span></span>
                   <span></span>
@@ -61,12 +61,18 @@
 
             <br><br>
             <br><br>
-            There is a menu on the left with the user's open files. 
+            There is a menu on the left with the user's open files.
+            <br><br>
+
+            <label for="open_file">Opened File, currently unmodifiable</label>
+            <textarea readonly id="open_file"></textarea>
+
         </div>
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="script.js"></script>
 
           <div data-role="footer" data-theme='b'>
-            <h3>Copyrigtht <span class="year"></span> by Vladyslav Tsepenok</h3>
+            <h3>Copyright <span class="year"></span> by Vladyslav Tsepenok</h3>
         </div>
     </div>
 
@@ -96,9 +102,9 @@
             the rest of the page.
             <br>
             <br>
-            Simple page to only show the output.
+            Current output of user files: 
             <div></div>
-            <iframe id="output"></iframe>
+            <iframe src="userfiles/index.html"></iframe>
         </div>
 
         <div data-role="footer" data-theme='b'>
