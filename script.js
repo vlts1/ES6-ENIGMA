@@ -37,4 +37,24 @@ $(document).ready(function() {
         const fileName = $(this).html();
         openFile(fileName);
     });
+
 });
+
+
+function readFile(file) {
+    return new Promise((resolve, reject) => {
+        let fr = new FileReader();
+        fr.onload = x=> resolve(fr.result);
+        fr.readAsText(file);
+    })}
+
+async function read(input) {
+    for (let f = 0; f < input.files.length; f++) {
+        let fileContents = await readFile(input.files[f]);
+        let fileList = document.getElementById("file_list");
+        let fileView = document.createElement('li');
+        fileView.appendChild(document.createTextNode(input.files[f].name));
+        fileList.appendChild(fileView);
+    }
+    document.getElementById("open_file").value = await readFile(input.files[0]);
+}

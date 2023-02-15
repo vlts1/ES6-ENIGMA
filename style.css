@@ -10,17 +10,18 @@ body {
 }
 
 #sidebar {
-  width: 200px;
+  width: 300px;
   background: #2c3e50;
   position: absolute;
   height: 100%;
   top: 0;
-  left: -200px;
+  left: -300px;
   transition: left 0.5s ease;
+  background-color: #3f3d3d;
 }
 
 #sidebar.visible {
-  left: 0px;
+  left: 0;
   transition: left 0.7s ease;
 }
 
@@ -34,6 +35,7 @@ li {
   padding: 10px 0 10px 10px;
   background: #46637F;
   border-bottom: 1px solid #233140;
+  font-family: "PT Sans Caption", serif;
 }
 
 li a {
@@ -50,7 +52,7 @@ li a {
   margin: 20px;
   position: absolute;
   right: -60px;
-  top: 0px;
+  top: 0;
 }
 
 #sidebar-btn span {
@@ -58,10 +60,6 @@ li a {
   height: 1px;
   display: block;
   margin-bottom: 5px;
-}
-
-#sidebar-btn span:nth-child(2) {
-  width: 75%;
 }
 
 h1 {
@@ -75,5 +73,19 @@ h1 {
 }
 
 textarea {
-  min-height: 500px;
+  overflow-y: scroll;
+  min-height: 800px;
+  resize: none;
 }
+
+#file_list li {
+  text-shadow: none;
+  background-color: #272727;
+  cursor: pointer;
+}
+
+.files_title {
+  padding-top: 15px;
+  font-family: "PT Sans Caption", serif;
+}
+

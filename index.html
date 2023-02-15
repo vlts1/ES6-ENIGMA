@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>JS Editor</title>
 </head>
 <body>
-    
 
 
     <div data-role="page" id="code">
 
         <div data-role="header" data-theme='b'>
-            <h2>Code</h2>
-        
+            <h1 class="page_title">Editor</h1>
+
             <div data-role="navbar" data-theme='b'>
                 <ul>
-                <li><a href="#code">Code</a></li>
+                <li><a href="#code">Editor</a></li>
                 <li><a href="#output">Output</a></li>
                 </ul>
             </div>
@@ -30,11 +30,14 @@
 
         <div data-role="content" data-theme='b'>
             <div id="sidebar">
-                <ul id="file_list">
+                <h1 class="files_title">Files</h1>
+                <input type="file" webkitdirectory directory multiple onchange="read(this)"/>
+                <ul id="file_list" class="border-left">
                   <li>index.html</li>
                   <li>style.css</li>
                   <li>script.js</li>
                 </ul>
+
 
                 <div id="sidebar-btn">
                   <span></span>
@@ -42,8 +45,9 @@
                   <span></span>
                 </div>
               </div>
-            
-            HTML & CSS, JS Code Editor. This page will have the current file opened. 
+
+            HTML & CSS, JS Code Editor. This page will have the current file opened.
+
             <br><br>
             It will open the directories from the user's pc (like vscode.dev does)
             <br><br>
@@ -65,7 +69,7 @@
             <br><br>
 
             <label for="open_file">Opened File, currently unmodifiable</label>
-            <textarea readonly id="open_file"></textarea>
+            <textarea readonly cols="100" rows="20" id="open_file"></textarea>
 
         </div>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -86,7 +90,7 @@
 
             <div data-role="navbar" data-theme='b'>
                 <ul>
-                 <li><a href="#code">Code</a></li>
+                 <li><a href="#code">Editor</a></li>
                  <li><a href="#output">Output</a></li>
                 </ul>
             </div>
@@ -108,7 +112,7 @@
         </div>
 
         <div data-role="footer" data-theme='b'>
-            <h3>Copyrigtht <span class="year"></span> by Vladyslav Tsepenok</h3>
+            <h3>Copyright <span class="year"></span> by Vladyslav Tsepenok</h3>
         </div>
     </div>
 
