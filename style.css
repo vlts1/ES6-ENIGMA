@@ -15,14 +15,14 @@ body {
   position: absolute;
   height: 100%;
   top: 0;
-  left: -300px;
-  transition: left 0.5s ease;
+  right: -300px;
+  transition: right 0.45s ease;
   background-color: #3f3d3d;
 }
 
 #sidebar.visible {
-  left: 0;
-  transition: left 0.7s ease;
+  right: 0;
+  transition: right 0.5s ease;
 }
 
 ul {
@@ -51,7 +51,7 @@ li a {
   cursor: pointer;
   margin: 20px;
   position: absolute;
-  right: -60px;
+  left: -60px;
   top: 0;
 }
 
@@ -73,6 +73,8 @@ h1 {
 }
 
 textarea {
+  width: auto;
+  padding-right: 100px;
   overflow-y: scroll;
   min-height: 800px;
   resize: none;
@@ -87,5 +89,15 @@ textarea {
 .files_title {
   padding-top: 15px;
   font-family: "PT Sans Caption", serif;
+}
+
+#open_file_wrapper {
+  transition: left 0.45s ease;
+  margin-right: 300px;
+}
+
+#open_file_wrapper.pushed {
+  margin-right: 0;
+  transition: left 0.5s ease;
 }
 

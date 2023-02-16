@@ -87,6 +87,7 @@ async function createFile(fileName) {
 $(document).ready(function() {
     $('#sidebar-btn').on('click', function() {
         $('#sidebar').toggleClass('visible');
+        $('#open_file_wrapper').toggleClass('pushed');
     });
 
     $(document).on('click','#file_list li',async function(e){
