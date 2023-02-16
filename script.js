@@ -1,4 +1,25 @@
-let openfile = '';
+let openFiles = [];
+
+class File {
+    constructor(name, content) {
+        if (!name.endsWith(".css") && !name.endsWith(".html") && !name.endsWith(".js")) {
+            alert("File extension is unsupported. Please use JavaScript, HTML, and CSS files only.");
+            throw ("File extension is unsupported");
+        }
+
+        // Name is already an ID. No need for a separate number, as every file name must be unique.
+        for (let file in openFiles) {
+            if (file.name === name) {
+                alert('File "' + name + '" already exists');
+                throw ("File already exists");
+            }
+        }
+
+        this.name = name;
+        this.content = content;
+    }
+}
+
 
 function setCurrentYear() {
     let date = new Date();
@@ -10,7 +31,7 @@ function setCurrentYear() {
     });
 }
 
-function openFile(fileName) {
+function openDocFile(fileName) {
     if (typeof fileName !== 'string') throw 'openFile(): File is not a string';
 
     $.ajax({
@@ -25,22 +46,6 @@ function openFile(fileName) {
     });
 }
 
-$(document).ready(function() {
-    $('#sidebar-btn').on('click', function() {
-        $('#sidebar').toggleClass('visible');
-    });
-
-    setCurrentYear();
-
-    $(document).on('click','li',function(e){
-        e.stopPropagation();
-        const fileName = $(this).html();
-        openFile(fileName);
-    });
-
-});
-
-
 function readFile(file) {
     return new Promise((resolve, reject) => {
         let fr = new FileReader();
@@ -48,13 +53,50 @@ function readFile(file) {
         fr.readAsText(file);
     })}
 
-async function read(input) {
+
+async function saveFiles(input) {
     for (let f = 0; f < input.files.length; f++) {
         let fileContents = await readFile(input.files[f]);
-        let fileList = document.getElementById("file_list");
+        let filesUl  = document.getElementById("file_list");
         let fileView = document.createElement('li');
+
+        try {
+            let file = new File(input.files[f].name, fileContents);
+            openFiles.push(file);
+        }
+        catch { continue; }
+
         fileView.appendChild(document.createTextNode(input.files[f].name));
-        fileList.appendChild(fileView);
+        filesUl.appendChild(fileView);
+        automaticFileOpen(input);
     }
-    document.getElementById("open_file").value = await readFile(input.files[0]);
 }
+
+async function automaticFileOpen(userInput) {
+    document.getElementById("open_file").value = await readFile(userInput.files[0]);
+}
+
+async function removeFile(fileName) {
+
+}
+
+async function createFile(fileName) {
+
+}
+
+$(document).ready(function() {
+    $('#sidebar-btn').on('click', function() {
+        $('#sidebar').toggleClass('visible');
+    });
+
+    $(document).on('click','#file_list li',async function(e){
+        e.stopPropagation();
+        const fileName = $(this).html();
+        for (let fileId = 0; fileId < openFiles.length; fileId++) {
+            if (openFiles[fileId].name === fileName) {
+                document.getElementById("open_file").value = openFiles[fileId].content;
+            }
+        }
+    });
+    setCurrentYear();
+});
