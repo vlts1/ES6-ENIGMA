@@ -8,8 +8,8 @@ class File {
         }
 
         // Name is already an ID. No need for a separate number, as every file name must be unique.
-        for (let file in openFiles) {
-            if (file.name === name) {
+        for (let fileId = 0; fileId < openFiles.length; fileId++) {
+            if (openFiles[fileId].name === name) {
                 alert('File "' + name + '" already exists');
                 throw ("File already exists");
             }
