@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/code_colors.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/symbol_highlighters/i_symbol_highlighter.dart';
+import '../../../html_color.dart';
+import '../../code_colors.dart';
+import '../../colorful_text/colorful_string.dart';
+import '../i_symbol_highlighter.dart';
 
 abstract class VaryingStringColorizer implements ISymbolHighlighter {
   @override
@@ -13,7 +13,7 @@ abstract class VaryingStringColorizer implements ISymbolHighlighter {
           colorString.setCharColor(charId, CodeColors.string);
         }
         if (colorString.rawString[charId] == stringOpeningSymbol) {
-          colorString.setCharColor(charId, Colors.white);
+          colorString.setCharColor(charId, HTMLColor('White'));
           inString = !inString;
         }
       }

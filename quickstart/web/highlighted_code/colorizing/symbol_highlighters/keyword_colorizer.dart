@@ -1,8 +1,8 @@
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/code_colors.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string_in_range_modifier.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/substring_finder.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/symbol_highlighters/i_symbol_highlighter.dart';
+import '../code_colors.dart';
+import '../colorful_text/colorful_string.dart';
+import '../colorful_text/colorful_string_in_range_modifier.dart';
+import '../colorful_text/substring_finder.dart';
+import 'i_symbol_highlighter.dart';
 
 class KeywordColorizer implements ISymbolHighlighter {
   static const _conditionals = [

@@ -1,4 +1,4 @@
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/code_colors.dart';
+import '../../code_colors.dart';
 import '../../colorful_text/colorful_string.dart';
 import '../i_symbol_highlighter.dart';
 

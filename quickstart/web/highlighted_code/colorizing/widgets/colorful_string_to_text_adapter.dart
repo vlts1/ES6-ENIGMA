@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string.dart';
 import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/widgets/code_char.dart';
 
+import '../colorful_text/colorful_string.dart';
+
 class ColorfulStringToTextAdapter extends Text {
   ColorfulStringToTextAdapter(ColorfulString string, BuildContext context, {Key? key})
       : super.rich(_colorfulStringToText(string, context), key: key);

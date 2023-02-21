@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/symbol_highlighters/i_symbol_highlighter.dart';
+import '../../../html_color.dart';
 import '../../colorful_text/colorful_string.dart';
 import '../../colorful_text/colorful_string_in_range_modifier.dart';
 import '../../colorful_text/ignore_symbols_while_colorizing/i_string_symbol_ignorer.dart';
 import '../../colorful_text/ignore_symbols_while_colorizing/string_last_char_ignorer.dart';
 import '../../colorful_text/substring_finder.dart';
+import '../i_symbol_highlighter.dart';
 
 /// Ignores the last character of the keyword. 
 
@@ -14,6 +14,7 @@ import '../../colorful_text/substring_finder.dart';
 /// should not be colorized. 
 abstract class KeywordWithEndSeparatorColorizer implements ISymbolHighlighter {
   final IStringSymbolIgnorer _endSeparatorIgnorer = StringLastCharIgnorer();
+  
   @override
   void highlight(List<ColorfulString> colorfulStrings) {
     for (ColorfulString colorString in colorfulStrings) {
@@ -31,6 +32,6 @@ abstract class KeywordWithEndSeparatorColorizer implements ISymbolHighlighter {
     }
   }
 
-  String get keyword;
-  Color  get keywordColor;
+  String    get keyword;
+  HTMLColor get keywordColor;
 }

@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-
+import '../../html_color.dart';
 import 'colorful_string.dart';
 
 class ColorfulStringInRangeModifier {
@@ -7,7 +6,7 @@ class ColorfulStringInRangeModifier {
   final ColorfulString colorfulString;
   
   /// Change color of characters between index pairs of [charIndexPairs]
-  void changeColor(List<int> charIndexPairs, Color color) {
+  void changeColor(List<int> charIndexPairs, HTMLColor color) {
     for (int pairInListLocation = 0; pairInListLocation < charIndexPairs.length; pairInListLocation += 2) {
       
       final charRangeStartIndex = charIndexPairs[pairInListLocation];

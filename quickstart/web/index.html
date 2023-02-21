@@ -8,6 +8,9 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <link rel="stylesheet"href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -33,7 +36,7 @@
 
         <div data-role="content" data-theme='b'>
             <div id="sidebar">
-                <h1 class="files_title">Files</h1>
+                <h1 class="files_title" id="side_title">Files</h1>
                 <input type="file" multiple onchange="saveFiles(this)"/>
 
                 <ul id="file_list" class="border-left">
@@ -50,6 +53,7 @@
             <div id="open_file_wrapper" class="pushed">
                 <textarea cols="100" rows="40"  id="open_file" style="overflow-y: scroll; resize: none; overflow-x: scroll; max-height: 1000px;"></textarea>
             </div>
+
         </div>
         <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="script.js"></script>
@@ -75,16 +79,6 @@
         </div>
 
         <div data-role="content" data-theme='b'>
-            Here is the page of code output. It will connect the rest of the user files 
-            to the index.html file and display the user code on this page.
-            <br>
-            <br>
-            It is going to have a square window in the middle to separate user's code from 
-            the rest of the page.
-            <br>
-            <br>
-            Current output of user files: 
-            <div></div>
             <iframe src="userfiles/index.html"></iframe>
         </div>
 

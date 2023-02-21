@@ -1,4 +1,4 @@
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string_in_range_modifier.dart';
+import 'colorful_string_in_range_modifier.dart';
 
 class SubstringFinder {
   /// Returns starting and ending index pairs from matching substrings 

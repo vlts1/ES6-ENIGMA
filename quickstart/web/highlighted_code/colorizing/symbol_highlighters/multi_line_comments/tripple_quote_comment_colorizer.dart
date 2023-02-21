@@ -1,20 +1,20 @@
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/code_colors.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/symbol_highlighters/i_symbol_highlighter.dart';
+import '../../code_colors.dart';
+import '../../colorful_text/colorful_string.dart';
+import '../i_symbol_highlighter.dart';
 
 class TrippleQuoteCommentColorizer implements ISymbolHighlighter {
   @override
   void highlight(List<ColorfulString> colorfulStrings) {
-    const _singleQuote = '"';
+    const singleQuote = '"';
     bool insideComment = false;
     for (ColorfulString string in colorfulStrings) {
       for (int charId = 0; charId < string.rawString.length; charId++) {
-        if (string.rawString[charId] == _singleQuote) {
+        if (string.rawString[charId] == singleQuote) {
           // Check for overflow
           if (charId + 2 < string.rawString.length) {
 
-            if (string.rawString[charId + 1] == _singleQuote) {
-              if (string.rawString[charId + 2] == _singleQuote) {
+            if (string.rawString[charId + 1] == singleQuote) {
+              if (string.rawString[charId + 2] == singleQuote) {
 
                 insideComment = !insideComment;
                 _colorizeTrippleQuoteSymbol(charId, string);

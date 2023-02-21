@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+import '../../html_color.dart';
 
 class ColorfulString {
   ColorfulString(this.rawString);
-  late final List<Color> _list = List.filled(rawString.length, Colors.white);
+  late final List<HTMLColor> _list = List.filled(rawString.length, HTMLColor('White'));
 
-  Color getCharColor(int charId) {
+  HTMLColor getCharColor(int charId) {
     return _list[charId];
   }
 
-  void setCharColor(int charId, Color color) {
+  void setCharColor(int charId, HTMLColor color) {
     _list[charId] = color;
   }
 

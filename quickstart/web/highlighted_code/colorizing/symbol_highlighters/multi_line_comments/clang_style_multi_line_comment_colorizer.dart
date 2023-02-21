@@ -1,6 +1,6 @@
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/code_colors.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/colorful_text/colorful_string.dart';
-import 'package:ruzz/pages/home_page/code_page/highlighted_code/colorizing/symbol_highlighters/i_symbol_highlighter.dart';
+import '../../code_colors.dart';
+import '../../colorful_text/colorful_string.dart';
+import '../i_symbol_highlighter.dart';
 
 class ClangStyleMultiLineCommentColorizer implements ISymbolHighlighter {
   @override
