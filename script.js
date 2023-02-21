@@ -14,7 +14,7 @@ class File {
                 throw ("File already exists");
             }
         }
-
+        this.assignmentRequirementId = this.ID = Math.random().toString(16).slice(5);
         this.name = name;
         this.content = content;
     }
