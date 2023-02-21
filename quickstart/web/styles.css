@@ -76,8 +76,12 @@ textarea {
   width: auto;
   padding-right: 100px;
   overflow-y: scroll;
-  min-height: 800px;
+  height: 1000px;
+  min-height: 1000px;
+  max-height: 1000px;
   resize: none;
+  width: 1000px;
+  white-space: nowrap;
 }
 
 #file_list li {
@@ -100,4 +104,3 @@ textarea {
   margin-right: 0;
   transition: left 0.5s ease;
 }
-
