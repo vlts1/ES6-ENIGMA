@@ -142,11 +142,19 @@ function download(strData, strFileName, strMimeType) {
 }
 
 function downloadOpen() {
-    for (let fileId = 0; fileId < openFiles.length; fileId++) {
-        const file = openFiles[fileId];
-        if (file.name === lastOpenFileName) {
-            download(file.content, file.name, 'text/plain');
-            break;
+    // Fixes the bug in which files were downloading 
+    // only with at least 2 files in the array
+    if (openFiles.length === 1) {
+        download(openFiles[0].content, 'enigma-' + openFiles[0].name, 'text/plain');
+    }
+
+    else {
+        for (let fileId = 0; fileId < openFiles.length; fileId++) {
+            const file = openFiles[fileId];
+            if (file.name === lastOpenFileName) {
+                download(file.content, 'enigma-' + file.name, 'text/plain');
+                break;
+            }
         }
     }
 }
@@ -166,8 +174,6 @@ $(document).ready(function() {
             }
         }
     });
-
-    $('#open_file').bind('input propertychange', saveFileTextChange);
 
     setCurrentYear();
 });
