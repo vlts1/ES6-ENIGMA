@@ -48,8 +48,9 @@
                   <span></span>
                 </div>
               </div>
-
+            
             <label for="open_file" id="open_file_label"></label>
+            <button id="save_file" onclick="downloadOpen()">Save File</button>
             <div id="open_file_wrapper" class="pushed">
                 <textarea cols="100" rows="40"  id="open_file" style="overflow-y: scroll; resize: none; overflow-x: scroll; max-height: 1000px;"></textarea>
             </div>
@@ -81,11 +82,7 @@
         <div data-role="content" data-theme='b'>
             <iframe src="userfiles/index.html"></iframe>
             
-        </div>
-        <a href="" id="a">click here to download your file</a>
-        <button onclick="download('file text', 'myfilename.txt', 'text/plain')">Create file</button>
-       
-        
+        </div>            
 
         <div data-role="footer" data-theme='b'>
             <h3>Copyright <span class="year"></span> by Vladyslav Tsepenok</h3>
