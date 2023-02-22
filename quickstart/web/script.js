@@ -1,5 +1,5 @@
 let openFiles = [];
-
+let lastOpenFileName = "";
 class File {
     constructor(name, content) {
         if (!name.endsWith(".css") && !name.endsWith(".html") && !name.endsWith(".js")) {
@@ -84,6 +84,17 @@ async function createFile(fileName) {
 
 }
 
+function saveFileTextChange() {
+    const newTextValue = document.getElementById("open_file").value;
+
+    for (let fileId = 0; fileId < openFiles.length; fileId++) {
+        const file = openFiles[fileId];
+        if (file.name === lastOpenFileName) {
+            file.content = newTextValue;
+        }
+    }
+}
+
 $(document).ready(function() {
     $('#sidebar-btn').on('click', function() {
         $('#sidebar').toggleClass('visible');
@@ -92,12 +103,15 @@ $(document).ready(function() {
 
     $(document).on('click','#file_list li',async function(e){
         e.stopPropagation();
-        const fileName = $(this).html();
+        lastOpenFileName = $(this).html();
         for (let fileId = 0; fileId < openFiles.length; fileId++) {
-            if (openFiles[fileId].name === fileName) {
+            if (openFiles[fileId].name === lastOpenFileName) {
                 document.getElementById("open_file").value = openFiles[fileId].content;
             }
         }
     });
+
+    $('#open_file').bind('input propertychange', saveFileTextChange);
+
     setCurrentYear();
 });
