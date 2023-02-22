@@ -52,7 +52,7 @@
             <label for="open_file" id="open_file_label"></label>
             <button id="save_file" onclick="downloadOpen()">Save File</button>
             <div id="open_file_wrapper" class="pushed">
-                <textarea onchange="saveFileTextChange()" cols="100" rows="40"  id="open_file" style="overflow-y: scroll; resize: none; overflow-x: scroll; max-height: 1000px;"></textarea>
+                <textarea onchange="saveFileTextChange()" onclick="onEditStart()" cols="100" rows="40"  id="open_file" style="overflow-y: scroll; resize: none; overflow-x: scroll; max-height: 1000px;"></textarea>
             </div>
 
         </div>

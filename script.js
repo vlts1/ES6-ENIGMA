@@ -14,6 +14,7 @@ class File {
                 alert('File "' + name + '" already exists');
                 throw ("File already exists");
             }
+
         }
         this.assignmentRequirementId = this.ID = Math.random().toString(16).slice(5);
         this.name = name;
@@ -70,6 +71,7 @@ async function saveFiles(input) {
         fileView.appendChild(document.createTextNode(input.files[f].name));
         filesUl.appendChild(fileView);
         automaticFileOpen(input);
+        lastOpenFileName = input.files[f].name;
     }
 }
 
@@ -85,7 +87,22 @@ async function createFile(fileName) {
 
 }
 
+function onEditStart() {
+    const isEditingNoFile = openFiles.length === 0;
+
+    if (isEditingNoFile) {
+        alert("Please add files before editing them");
+        document.getElementById("open_file").value = "";
+        return false;
+    }
+    return true;
+}
+
 function saveFileTextChange() {
+    if (onEditStart() == false) {
+        document.getElementById("open_file").value = "";
+        return;
+    }
     const newTextValue = document.getElementById("open_file").value;
 
     for (let fileId = 0; fileId < openFiles.length; fileId++) {
