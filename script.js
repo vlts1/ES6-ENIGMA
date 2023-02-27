@@ -79,14 +79,6 @@ async function automaticFileOpen(userInput) {
     document.getElementById("open_file").value = await readFile(userInput.files[0]);
 }
 
-async function removeFile(fileName) {
-
-}
-
-async function createFile(fileName) {
-
-}
-
 function onEditStart() {
     const isEditingNoFile = openFiles.length === 0;
 
@@ -175,6 +167,21 @@ function downloadOpen() {
         }
     }
 }
+
+async function saveFilesToDirectory() {
+    const dirHandle = await window.showDirectoryPicker();
+    
+    for (let userFileId = 0; userFileId < openFiles.length; userFileId++) {
+        let file = openFiles[userFileId];
+        const localFile = await dirHandle.getFileHandle(file.name, { create: true, overwrite: true });
+        const writable = await localFile.createWritable();
+        await writable.write(file.content);
+        await writable.close();
+
+        console.log(`Saved file ${file.name} to ${dirHandle.name}`);
+    }
+}
+
 
 $(document).ready(function() {
     $('#sidebar-btn').on('click', function() {

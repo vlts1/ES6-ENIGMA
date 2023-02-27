@@ -8,17 +8,16 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <!-- JQuery Mobile Theme -->
     <link rel="stylesheet" href="themes/orange-theme.css" />
     <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 
-    <link rel="stylesheet"href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- Highlighting  -->
+    <script language="Javascript" type="text/javascript" src="../edit_area/edit_area_full.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <meta name="scaffolded-by" content="https://github.com/dart-lang/sdk">
-    <script defer src="main.dart.js"></script>
     <title>JS Editor</title>
 </head>
 <body>
@@ -53,8 +52,11 @@
               </div>
             
             <label for="open_file" id="open_file_label"></label>
-            <button id="save_file" onclick="downloadOpen()">Save File</button>
+            <button id="save_file" onclick="downloadOpen()">Download File</button>
+            <button id="save_all" onclick="saveFilesToDirectory()">Save All</button>
+
             <div id="open_file_wrapper" class="pushed">
+
                 <textarea onchange="saveFileTextChange()" onclick="onEditStart()" cols="100" rows="40"  id="open_file" style="overflow-y: scroll; resize: none; overflow-x: scroll; max-height: 1000px;"></textarea>
             </div>
 
@@ -71,7 +73,7 @@
     <div data-role="page" id="output">
     
         <div data-role="header" data-theme='b'>
-            <h2>Output (Under Development)</h2>
+            <h2>Output (Will be completed with Node JS)</h2>
 
             <div data-role="navbar" data-theme='b'>
                 <ul>
